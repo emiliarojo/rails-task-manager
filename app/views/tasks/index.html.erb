@@ -1,0 +1,26 @@
+<div class="paper">
+  <div class="lines"></div>
+  <div class="text">
+    <h1>My Tasks</h1>
+
+    <ul class = "list" style="list-style: none;">
+      <% @tasks.each do |task| %>
+        <li>
+          <% if task.completed? %>
+            <i class="fa-regular fa-square-check"></i>
+          <% else %>
+            <i class="fa-regular fa-square"></i>
+          <% end %>
+          <%= link_to task.title, task_path(task.id) %>
+        </li>
+      <% end %>
+    </ul>
+
+    <div>
+      <i class="fa-solid fa-plus"></i> <%= link_to "Create Task", tasks_new_path, class: "link" %>
+    </div>
+  </div>
+  <div class="holes hole-top"></div>
+  <div class="holes hole-middle"></div>
+  <div class="holes hole-bottom"></div>
+</div>
